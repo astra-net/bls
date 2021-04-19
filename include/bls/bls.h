@@ -99,6 +99,8 @@ BLS_DLL_API int blsInit(int curve, int compiledTimeVar);
 #define BLS_ETH_MODE_LATEST 3
 BLS_DLL_API int blsSetETHmode(int mode);
 
+BLS_DLL_API void blsSetGenerator(int hardfork);
+
 /*
 	set ETH serialization mode for BLS12-381
 	@param ETHserialization [in] 1:enable,  0:disable

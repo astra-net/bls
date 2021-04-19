@@ -75,6 +75,19 @@ int blsSetETHmode(int mode)
 	return 0;
 }
 
+void blsSetGenerator(int hardfork) {
+	bool b;
+	if (hardfork) {
+		mclBn_setETHserialization(1);
+		g_P.setStr(&b, "1 3685416753713387016781088315183077757961620795782546409894578378688607592378376318836054947676345821548104185464507 1339506544944476473020471379941921221584933875938349620426543736416511423956333506472724655353366534992391756441569", 10);
+		mclBn_setMapToMode(MCL_MAP_TO_MODE_HASH_TO_CURVE_07);
+	} else {
+		mclBn_setETHserialization(0);
+		mclBn_setMapToMode(MCL_MAP_TO_MODE_ORIGINAL);
+		mapToG1(&b, g_P, 1);
+	}
+}
+
 int blsInit(int curve, int compiledTimeVar)
 {
 	if (compiledTimeVar != MCLBN_COMPILED_TIME_VAR) {
