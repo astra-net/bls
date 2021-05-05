@@ -77,9 +77,9 @@ int blsSetETHmode(int mode)
 
 int blsInit(int curve, int compiledTimeVar)
 {
-	if (compiledTimeVar != MCLBN_COMPILED_TIME_VAR) {
-		return -(compiledTimeVar + (MCLBN_COMPILED_TIME_VAR * 1000));
-	}
+	// if (compiledTimeVar != MCLBN_COMPILED_TIME_VAR) {
+	// 	return -(compiledTimeVar + (MCLBN_COMPILED_TIME_VAR * 1000));
+	// }
 	const mcl::CurveParam* cp = mcl::getCurveParam(curve);
 	if (cp == 0) return -1;
 	bool b;
@@ -92,7 +92,7 @@ int blsInit(int curve, int compiledTimeVar)
 
 #ifdef BLS_ETH
 	if (curve == MCL_BLS12_381) {
-		mclBn_setETHserialization(1);
+		// mclBn_setETHserialization(1);
 		g_P.setStr(&b, "1 3685416753713387016781088315183077757961620795782546409894578378688607592378376318836054947676345821548104185464507 1339506544944476473020471379941921221584933875938349620426543736416511423956333506472724655353366534992391756441569", 10);
 		mclBn_setMapToMode(MCL_MAP_TO_MODE_HASH_TO_CURVE_07);
 	} else
