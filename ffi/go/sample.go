@@ -5,7 +5,7 @@
 package main
 import (
 	"fmt"
-	"github.com/harmony-one/bls/ffi/go/bls"
+	"github.com/astra-net/bls/ffi/go/bls"
 	"crypto/rand"
 )
 
